@@ -1,8 +1,0 @@
-<html xmlns:wicket="http://wicket.sourceforge.net/">
-<body>
-	<wicket:panel>
-		<a href="#" wicket:id="editUser">Edit</a>		
-	</wicket:panel> 
-</body>
-</html>
-	

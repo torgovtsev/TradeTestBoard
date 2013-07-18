@@ -1,8 +1,0 @@
-<html xmlns:wicket="http://wicket.sourceforge.net/">
-<body>
-	<wicket:extend>
-	<br>
-		<a href="#" wicket:id="competencesPage" class="button-link">Competences tree</a>
-	</wicket:extend>
-</body>
-</html>

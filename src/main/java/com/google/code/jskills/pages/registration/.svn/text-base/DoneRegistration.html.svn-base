@@ -1,7 +1,0 @@
-<html xmlns:wicket="http://wicket.sourceforge.net/">
-<body>
-	<form wicket:id="doneForm">
-		<label wicket:id="result"></label>
-	</form>
-</body>
-</html>

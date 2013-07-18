@@ -1,8 +1,0 @@
-<html xmlns:wicket="http://wicket.sourceforge.net/">
-<body>
-	<wicket:extend>		
-		<h1><span wicket:id="contentMessage" class="header-custom">Message goes here</span></h1>
-		<h2><span wicket:id="helloMessage" class="header-custom">Message goes here</span></h2>
-	</wicket:extend>
-</body>
-</html>
