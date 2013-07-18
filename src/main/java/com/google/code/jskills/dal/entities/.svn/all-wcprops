@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1140/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities
+END
+UserEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1140/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/UserEntity.java
+END
+CompetencesEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/CompetencesEntity.java
+END
+ProfileEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/ProfileEntity.java
+END
+UserUuidEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/UserUuidEntity.java
+END
+QuestionEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/QuestionEntity.java
+END
+UserVerificationEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1139/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/UserVerificationEntity.java
+END
+Test2questionEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/Test2questionEntity.java
+END
+RolePermissionEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/RolePermissionEntity.java
+END
+LevelEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/LevelEntity.java
+END
+Test2questionEntityId.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/Test2questionEntityId.java
+END
+UserRoleEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/UserRoleEntity.java
+END
+RolePermissionEntityId.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/RolePermissionEntityId.java
+END
+GroupEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/GroupEntity.java
+END
+AnswerEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/AnswerEntity.java
+END
+UserRoleEntityId.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/UserRoleEntityId.java
+END
+CountryEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/CountryEntity.java
+END
+RoleEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/RoleEntity.java
+END
+GroupRoleEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/GroupRoleEntity.java
+END
+UserGroupEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/UserGroupEntity.java
+END
+ApplicationSettingsEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/ApplicationSettingsEntity.java
+END
+TestEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/TestEntity.java
+END
+GroupRoleEntityId.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/GroupRoleEntityId.java
+END
+UserGroupEntityId.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/UserGroupEntityId.java
+END
+PermissionEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1138/trunk/jskills/src/main/java/com/google/code/jskills/dal/entities/PermissionEntity.java
+END

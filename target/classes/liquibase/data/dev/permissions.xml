@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+
+	<changeSet id="data_dev_user_management_permissions" author="Sergey_Kozlov"
+		context="dev">
+
+		<insert tableName="permission">
+			<column name="id">1</column>
+			<column name="name">view</column>
+			<column name="description"></column>
+		</insert>
+
+		<insert tableName="permission">
+			<column name="id">2</column>
+			<column name="name">add</column>
+			<column name="description"></column>
+		</insert>		
+
+		<insert tableName="permission">
+			<column name="id">3</column>
+			<column name="name">edit</column>
+			<column name="description"></column>
+		</insert>
+
+		<insert tableName="permission">
+			<column name="id">4</column>
+			<column name="name">remove</column>
+			<column name="description"></column>
+		</insert>
+		
+		<insert tableName="permission">
+			<column name="id">5</column>
+			<column name="name">take part</column>
+			<column name="description"></column>
+		</insert>
+		
+	</changeSet>
+
+</databaseChangeLog>

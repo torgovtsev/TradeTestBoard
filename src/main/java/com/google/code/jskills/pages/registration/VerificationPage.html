@@ -1,0 +1,16 @@
+<html xmlns:wicket="http://wicket.sourceforge.net/">
+<wicket:link>
+	<link rel="stylesheet" href="css/add.css" type="text/css" />
+</wicket:link>
+<body>
+	<wicket:extend>
+		<span wicket:id="feedback"></span>
+		<form wicket:id="verificationForm">
+			<label wicket:id="emailLabel"></label> <input type="email"
+				wicket:id="email" /> <br> <label wicket:id="uuidLabel"></label>
+			<input type="text" wicket:id="uuid" /> <br> <input wicket:id="submitButton"
+				type="submit" value="Activate" />
+		</form>
+	</wicket:extend>
+</body>
+</html>

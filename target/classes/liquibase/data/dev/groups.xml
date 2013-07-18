@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+
+	<changeSet id="data_dev_user_management_groups" author="Sergey_Kozlov"
+		context="dev">
+
+		<insert tableName="group_">
+			<column name="id">1</column>
+			<column name="name">Guests</column>
+			<column name="description">Guests group</column>
+		</insert>
+
+		<insert tableName="group_">
+			<column name="id">2</column>
+			<column name="name">Users</column>
+			<column name="description">Users group</column>
+		</insert>		
+
+		<insert tableName="group_">
+			<column name="id">3</column>
+			<column name="name">Participants</column>
+			<column name="description">Participants group</column>
+		</insert>
+
+		<insert tableName="group_">
+			<column name="id">4</column>
+			<column name="name">Administrators</column>
+			<column name="description">Administrators group</column>
+		</insert>
+		
+		<insert tableName="group_">
+			<column name="id">5</column>
+			<column name="name">Test</column>
+			<column name="description">Group for tests</column>
+		</insert>
+		
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1160/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers
+END
+ApplicationSettingsDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1107/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/ApplicationSettingsDataProvider.java
+END
+TestDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1137/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/TestDataProvider.java
+END
+PermissionDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1134/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/PermissionDataProvider.java
+END
+AnswerDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1141/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/AnswerDataProvider.java
+END
+UserDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1130/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/UserDataProvider.java
+END
+ProfilesDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1122/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/ProfilesDataProvider.java
+END
+CompetencesDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/1150/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/CompetencesDataProvider.java
+END
+RoleDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1134/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/RoleDataProvider.java
+END
+UserVerificationDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/1099/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/UserVerificationDataProvider.java
+END
+CountryDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1112/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/CountryDataProvider.java
+END
+UserUuidDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1149/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/UserUuidDataProvider.java
+END
+QuestionDataProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1160/trunk/jskills/src/main/java/com/google/code/jskills/dal/providers/QuestionDataProvider.java
+END

@@ -1,0 +1,31 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+  <persistence-unit name="jskillsDB">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <non-jta-data-source>java:jboss/datasources/jskillsDS</non-jta-data-source>
+    <class>com.google.code.jskills.dal.entities.UserEntity</class>
+    <class>com.google.code.jskills.dal.entities.RoleEntity</class>
+    <class>com.google.code.jskills.dal.entities.GroupEntity</class>
+    <class>com.google.code.jskills.dal.entities.CountryEntity</class>
+    <class>com.google.code.jskills.dal.entities.GroupRoleEntity</class>
+    <class>com.google.code.jskills.dal.entities.GroupRoleEntityId</class>
+    <class>com.google.code.jskills.dal.entities.PermissionEntity</class>
+    <class>com.google.code.jskills.dal.entities.RolePermissionEntity</class>
+    <class>com.google.code.jskills.dal.entities.RolePermissionEntityId</class>
+    <class>com.google.code.jskills.dal.entities.UserGroupEntity</class>
+    <class>com.google.code.jskills.dal.entities.UserGroupEntityId</class>
+    <class>com.google.code.jskills.dal.entities.UserRoleEntity</class>
+    <class>com.google.code.jskills.dal.entities.UserRoleEntityId</class>
+    <class>com.google.code.jskills.dal.entities.UserVerificationEntity</class>
+    <class>com.google.code.jskills.dal.entities.UserUuidEntity</class>
+    <class>com.google.code.jskills.dal.entities.ApplicationSettingsEntity</class>
+    <class>com.google.code.jskills.dal.entities.TestEntity</class>
+    <class>com.google.code.jskills.dal.entities.QuestionEntity</class>
+    <class>com.google.code.jskills.dal.entities.AnswerEntity</class>
+    <class>com.google.code.jskills.dal.entities.Test2questionEntity</class>
+    <class>com.google.code.jskills.dal.entities.Test2questionEntityId</class>
+    <properties>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+        <property name="hibernate.show_sql" value="true" />
+    </properties>
+  </persistence-unit>
+</persistence>

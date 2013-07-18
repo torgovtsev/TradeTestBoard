@@ -1,0 +1,15 @@
+<html xmlns:wicket="http://wicket.sourceforge.net/">
+<body>
+	<wicket:extend>	
+	
+		<form wicket:id="permissionsListForm">
+			<h1><span wicket:id="contentMessage" class="header-custom">Message goes here</span></h1>
+			<br>
+			<table title="Permissions List" wicket:id="permissionsTable" class="table table-striped table-bordered table-hover table-condensed" border="1"></table>		
+			<br>
+			<input wicket:id="createPermission" type="submit" value="Create Permission" class="btn-primary"/>
+		</form>
+		
+	</wicket:extend>
+</body>
+</html>

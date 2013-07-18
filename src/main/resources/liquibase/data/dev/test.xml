@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+
+	<changeSet id="data_test" author="frolova_v_v" context="dev">
+
+		<insert tableName="test">
+			<column name="id">1</column>
+			<column name="name">data structures</column>
+			<column name="description"></column>
+		</insert>
+		
+		<insert tableName="test">
+			<column name="id">2</column>
+			<column name="name">algorithms</column>
+			<column name="description"></column>
+		</insert>
+		
+		<insert tableName="test">
+			<column name="id">3</column>
+			<column name="name">systems programming</column>
+			<column name="description"></column>
+		</insert>
+		
+		<insert tableName="test">
+			<column name="id">4</column>
+			<column name="name">source code version control</column>
+			<column name="description"></column>
+		</insert>
+		
+		<insert tableName="test">
+			<column name="id">5</column>
+			<column name="name">build automation</column>
+			<column name="description"></column>
+		</insert>
+		
+		<insert tableName="test">
+			<column name="id">6</column>
+			<column name="name">automated testing</column>
+			<column name="description"></column>
+		</insert>
+		
+		<insert tableName="test">
+			<column name="id">7</column>
+			<column name="name">problem decomposition</column>
+			<column name="description"></column>
+		</insert>
+		
+		<insert tableName="test">
+			<column name="id">8</column>
+			<column name="name">Java Generics</column>
+			<column name="description"></column>
+		</insert>
+		
+		
+		<insert tableName="test">
+			<column name="id">9</column>
+			<column name="name">Java Collection</column>
+			<column name="description"></column>
+		</insert>
+				
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,1 @@
+mvn liquibase:update -Dliquibase.dropFirst=true -Dliquibase.contexts="dev"

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1136/trunk/jskills/src/main/resources/liquibase/schema
+END
+user_management.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1056/trunk/jskills/src/main/resources/liquibase/schema/user_management.xml
+END
+profiles.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1122/trunk/jskills/src/main/resources/liquibase/schema/profiles.xml
+END
+competences.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1135/trunk/jskills/src/main/resources/liquibase/schema/competences.xml
+END
+user_registration.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1135/trunk/jskills/src/main/resources/liquibase/schema/user_registration.xml
+END
+user_uuid.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1136/trunk/jskills/src/main/resources/liquibase/schema/user_uuid.xml
+END
+test_management.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1136/trunk/jskills/src/main/resources/liquibase/schema/test_management.xml
+END
+application_settings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1121/trunk/jskills/src/main/resources/liquibase/schema/application_settings.xml
+END
+dictionaries.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1006/trunk/jskills/src/main/resources/liquibase/schema/dictionaries.xml
+END

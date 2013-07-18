@@ -1,0 +1,235 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.jskills</groupId>
+	<artifactId>jskills</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>jskills</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>5.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-6.0</artifactId>
+			<version>3.0.2.Final</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.1-20130305</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.annotation</groupId>
+			<artifactId>jboss-annotations-api_1.1_spec</artifactId>
+			<version>1.0.1.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+			<version>1.0.2.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Logging -->
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+
+		<!-- Wicket related -->
+
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-core</artifactId>
+			<version>6.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-cdi</artifactId>
+			<version>6.7.0</version>
+		</dependency>
+
+		<!-- Wicket captcha -->
+
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-extensions</artifactId>
+			<version>6.7.0</version>
+		</dependency>
+
+		<!-- Shiro security related -->
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-aspectj</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wicketstuff</groupId>
+			<artifactId>wicketstuff-shiro</artifactId>
+			<version>6.7.0</version>
+		</dependency>
+
+		<!-- editable grid -->
+		<dependency>
+			<groupId>org.wicketstuff</groupId>
+			<artifactId>wicketstuff-editable-grid</artifactId>
+			<version>6.7.0</version>
+		</dependency>
+
+
+		<!-- Database related -->
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.8</version>
+		</dependency>
+
+		<!-- Unit tests -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>2.0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-tools</artifactId>
+			<version>3.6.0.CR1</version>
+		</dependency>
+
+		<!-- SimpleCaptcha -->
+
+		<dependency>
+			<groupId>com.google.code.maven-play-plugin.org.playframework</groupId>
+			<artifactId>jj-simplecaptcha</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.arquillian</groupId>
+			<artifactId>arquillian-bom</artifactId>
+			<version>1.0.3.Final</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<version>1.0.3.Final</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> <groupId>org.jboss.arquillian.container</groupId> <artifactId>arquillian-weld-ee-embedded-1.1</artifactId> 
+			<version>1.0.0.CR6</version> <scope>test</scope> </dependency> -->
+
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<inherited>true</inherited>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>2.0.5</version>
+				<configuration>
+					<propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+					<changeLogFile>src/main/resources/liquibase/master.xml</changeLogFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>JBoss</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+		</repository>
+
+		<!-- for editable grid -->
+		<repository>
+			<id>wicketstuff-core-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+
+
+	</repositories>
+</project>

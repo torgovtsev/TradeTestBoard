@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Review id="Initial Review">
+  <ReviewIssue id="HFPD12NN">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2013-04-19 :: 16:54:24:179 MSK</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2013-04-19 :: 16:54:28:162 MSK</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>iternovy</ReviewerId>
+    <AssignedTo>iternovy</AssignedTo>
+    <File line="14">src/main/java/com/google/code/jskills/pages/MasterPage.html</File>
+    <Type>item.label.unset</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>sdfsdf</Summary>
+    <Description>sdfsdfsdf</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="HFPD2A69">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2013-04-19 :: 16:55:20:577 MSK</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2013-04-19 :: 16:55:26:163 MSK</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>iternovy</ReviewerId>
+    <AssignedTo>iternovy</AssignedTo>
+    <File line="8">src/main/java/com/google/code/jskills/pages/MasterPage.html</File>
+    <Type>item.label.unset</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>dfsdfsdf</Summary>
+    <Description>sdfsdf</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+</Review>

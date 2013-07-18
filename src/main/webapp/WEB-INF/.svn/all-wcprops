@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1118/trunk/jskills/src/main/webapp/WEB-INF
+END
+faces-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/941/trunk/jskills/src/main/webapp/WEB-INF/faces-config.xml
+END
+beans.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/910/trunk/jskills/src/main/webapp/WEB-INF/beans.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1118/trunk/jskills/src/main/webapp/WEB-INF/web.xml
+END

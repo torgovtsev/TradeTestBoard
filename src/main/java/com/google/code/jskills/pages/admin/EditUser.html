@@ -1,0 +1,67 @@
+<html xmlns:wicket="http://wicket.sourceforge.net/">
+<body>
+	<wicket:extend>
+		<h1><span wicket:id="message" class="header-custom">Message goes here</span></h1>
+			
+		<span wicket:id="feedback"></span>
+		
+		<form wicket:id="editUserForm" >
+			<h3>User Info</h3>
+			<table>
+				<tr>
+					<td><label wicket:id="userFirstNameLabel" class="label"></label></td>
+					<td><input wicket:id="userFirstNameField" class="input"/></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="userLastNameLabel" class="label"></label></td>
+					<td><input wicket:id="userLastNameField" class="input"/></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="userEmailLabel" class="label"></label></td>
+					<td><input wicket:id="userEmailField" class="input"/></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="userMobileLabel" class="label"></label></td>
+					<td><input wicket:id="userMobileField" class="input"/></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="userSexLabel" class="label"></label></td>
+					<td><span wicket:id="userSexChoise" class="input[type=radio]"></span></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="userAgeLabel" class="label"></label></td>
+					<td><input type="number" wicket:id="userAgeField" style="height: 25px;"/></td>
+				</tr>
+				
+				<tr>
+					<td><label wicket:id="userCountryLabel" class="label"></label></td>
+					<td><select wicket:id="userCountryChoise" class="dropdown"></select></td>
+				</tr>
+				
+				<tr>
+					<td><label wicket:id="userSecretQuestionFieldLabel" class="label"></label></td>
+					<td><input wicket:id="userSecretQuestionField" class="input"/></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="userIsDeletedLabel" class="label"></label></td>
+					<td><input type="checkbox" wicket:id="isDeletedCkeckBox" class="input[type=checkbox]"/></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="userIsBlockedLabel" class="label"></label></td>
+					<td><input type="checkbox" wicket:id="isBlockedCkeckBox" class="input[type=checkbox]"/></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="userIsVerifiedLabel" class="label"></label></td>
+					<td><input type="checkbox" wicket:id="isVerifiedCkeckBox" class="input[type=checkbox]"/></td>
+				</tr>				
+			</table>
+			<br>
+			<input wicket:id="submitButton" type="submit" value="Save" class="btn-primary"/>
+			<input wicket:id="cancelButton" type="submit" value="Cancel" class="btn-warning"/>
+			<input wicket:id="pickRolesForUserButton" type="submit" value="Pick Roles" class="btn-primary"/>
+		</form>
+	<br>
+	</wicket:extend>
+</body>
+</html>
+	

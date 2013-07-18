@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+
+	<changeSet id="schema_application_settings" author="Sergey_Torgovtsev">
+
+		<comment>Application settings</comment>
+
+		<createTable tableName="application_settings">
+			<column name="id" autoIncrement="true" type="int">
+				<constraints primaryKey="true" primaryKeyName="PK_application_settings" />
+			</column>
+			<column name="property_value" type="varchar(256)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+</databaseChangeLog>

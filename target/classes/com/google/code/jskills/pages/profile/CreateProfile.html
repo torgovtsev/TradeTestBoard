@@ -1,0 +1,32 @@
+<html xmlns:wicket="http://wicket.sourceforge.net/">
+<body>
+	
+		<h3>Create new Profile :</h3>
+		<span wicket:id="feedback"></span>
+
+		<form wicket:id="createForm">
+			<table>
+				<tr>
+					<td><label wicket:id="profileNameLabel"></label></td>
+					<td><input wicket:id="profileName" /></td>
+
+				</tr>
+				<tr>
+					<td><label wicket:id="descriptionLabel"></label></td>
+					<td><input wicket:id="profileDescription" /></td>
+				</tr>
+			</table>
+			<br /> <br />
+			<p>
+				<input wicket:id="createProfile" type="submit"
+					value="Create Profile" />
+			</p>
+		</form>
+
+		<p>
+			<a wicket:id="close"> </a> <br />
+		</p>
+
+	
+</body>
+</html>

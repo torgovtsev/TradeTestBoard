@@ -1,0 +1,41 @@
+<html xmlns:wicket="http://wicket.apache.org">
+<body>
+	<div wicket:id="news"></div>
+	<form wicket:id="addForm">
+		<table class="table table-striped" border="1">
+			<tr>
+				<td><label wicket:id="competencesDescLable"></label></td>
+				<td><input type="text" wicket:id="compDesc" /></td>
+			</tr>
+			<tr>
+				<td><label wicket:id="rootLabel"></label></td>
+				<td><input type="checkbox" wicket:id="checkRoot" /></td>
+			</tr>
+			<tr>
+				<td><label wicket:id="parentLabel"></label></td>
+				<td><select wicket:id="competences"></select></td>
+			</tr>
+			<tr>
+				<td><label wicket:id="level1Label"></label></td>
+				<td><input type="text" wicket:id="level1" /></td>
+			</tr>
+			<tr>
+				<td><label wicket:id="level2Label"></label></td>
+				<td><input type="text" wicket:id="level2" /></td>
+			</tr>
+			<tr>
+				<td><label wicket:id="level3Label"></label></td>
+				<td><input type="text" wicket:id="level3" /></td>
+			</tr>
+			<tr>
+				<td><label wicket:id="level4Label"></label></td>
+				<td><input type="text" wicket:id="level4" /></td>
+			</tr>
+		</table>
+		<input wicket:id="save" type="submit" value="Save" />
+	</form>
+	<br>
+	
+	<a href="#" wicket:id="cancel" class="button-link">Cancel</a>
+</body>
+</html>

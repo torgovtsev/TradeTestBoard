@@ -1,0 +1,74 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<changeSet id="schema_test_management" author="frolova_v_v">
+
+		<comment> Test_manaegment </comment>
+
+		<createTable tableName="test">
+			<column name="id" autoIncrement="true" type="int">
+				<constraints primaryKey="true" primaryKeyName="PK_test" />
+			</column>
+            
+            <!-- <column name="id_profile" type="int">
+				<constraints  foreignKeyName="FK_test_profile"  references="test2profile(id_profile)"/>
+			</column>
+             -->
+			<column name="name" type="varchar(256)">
+				<constraints nullable="false" unique="true" uniqueConstraintName="UQ_test_name"/>
+			</column>
+
+			<column name="description" type="varchar(1024)">
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+		
+		<createTable tableName="question">
+			<column name="id" autoIncrement="true" type="int">
+				<constraints primaryKey="true" primaryKeyName="PK_question" />
+			</column>
+            
+			<column name="questiontext" type="varchar(1024)">
+				<constraints nullable="false" unique="true" uniqueConstraintName="UQ_question_text"/>
+			</column>
+		</createTable>
+		
+		<createTable tableName="test2question">
+            <column name="test_id" type="int">
+				<constraints  nullable="false" foreignKeyName="FK_tq_test"  references="test(id)"/>
+			</column>
+            <column name="question_id" type="int">
+				<constraints  nullable="false" foreignKeyName="FK_tq_question"  references="question(id)"/>
+			</column>
+		</createTable>
+		
+		<!-- <createTable tableName="point">
+			<column name="id" autoIncrement="true" type="int">
+				<constraints primaryKey="true" primaryKeyName="PK_point" />
+			</column>
+		</createTable> -->
+		
+		
+		<createTable tableName="answer">
+			<column name="id" autoIncrement="true" type="int">
+				<constraints primaryKey="true" primaryKeyName="PK_answer" />
+			</column>
+            
+            <column name="question_id" type="int">
+				<constraints nullable="false" foreignKeyName="FK_answer_question"  references="question(id)"/>
+			</column>
+            
+			<column name="answertext" type="varchar(4096)">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="point" type="int">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		
+		
+	</changeSet>
+</databaseChangeLog>

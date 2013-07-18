@@ -1,0 +1,80 @@
+10
+
+dir
+1161
+https://vtgroup3.googlecode.com/svn/trunk/jskills/src/main/java/com/google/code/jskills
+https://vtgroup3.googlecode.com/svn
+
+
+
+2013-07-12T10:54:30.468033Z
+1161
+frolova.victory@gmail.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b616ee96-c4a8-d1bc-334b-01761eb6602b
+
+MainApplication.java
+file
+
+
+
+
+2013-07-12T13:01:17.183000Z
+6678fb1eea1dc8121668b1697b0b97a3
+2013-07-11T22:06:13.568517Z
+1158
+frolova.victory@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6206
+
+business
+dir
+
+dal
+dir
+
+domain
+dir
+
+pages
+dir
+
+ui
+dir
+
+utils
+dir
+

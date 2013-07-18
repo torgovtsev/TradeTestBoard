@@ -1,0 +1,33 @@
+<html xmlns:wicket="http://wicket.sourceforge.net/">
+<body>
+	<wicket:extend>
+		<h1><span wicket:id="contentMessage" class="header-custom">Message goes here</span></h1>
+		<br/>
+		<form wicket:id="editPermissionForm">
+		
+				<table>
+					<tr>
+						<td><label wicket:id="PermissionNameLabel" class="label"></label></td>
+						<td><input wicket:id="PermissionNameField" class="input"/></td>
+					</tr>
+					<tr>
+						<td><label wicket:id="PermissionDescriptionLabel" class="label"></label></td>
+						<td><input wicket:id="PermissionDescriptionField" class="input"/></td>
+					</tr>
+				</table>
+				
+				<br/>
+				
+				<input wicket:id="saveButton" type="submit" value="Save"
+				style="padding: 0px 10px;" class="btn-primary"/> 
+				
+				<input wicket:id="cancelButton"
+				type="submit" value="Cancel" style="padding: 0px 10px;" class="btn-warning"/>
+				
+		</form>
+			
+			<span wicket:id="feedback"></span>
+			
+	</wicket:extend>
+</body>
+</html>

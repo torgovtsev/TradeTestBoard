@@ -1,0 +1,31 @@
+<html xmlns:wicket="http://wicket.sourceforge.net/">
+<body>
+	<wicket:extend>
+
+		<h1>EditorFor</h1>
+		<span wicket:id="feedback"></span>
+		<span wicket:id="message">Message goes here</span>
+
+		<form wicket:id="editProfileInfo">
+
+			<h3>Profile Info</h3>
+			<table>
+				<tr>
+					<td><label wicket:id="labelName"></label></td>
+					<td><input wicket:id="inputName" /></td>
+				</tr>
+				<tr>
+					<td><label wicket:id="labelDescription"></label></td>
+					<td><input wicket:id="inputDescription" /></td>
+				</tr>
+			</table>
+
+			<input wicket:id="saveButton" type="submit" value="Save"
+				style="padding: 0px 10px;" class="btn-primary" /> 
+				<input wicket:id="cancelButton"
+				type="submit" value="Cancel" style="padding: 0px 10px;" class="btn-warning"/>
+
+		</form>
+	</wicket:extend>
+</body>
+</html>

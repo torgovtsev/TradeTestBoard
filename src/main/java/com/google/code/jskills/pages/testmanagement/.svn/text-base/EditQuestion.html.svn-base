@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org" xml:lang="en" lang="en">
+<head>
+<title>Edit Test </title>
+</head>
+<body>
+	<wicket:extend>
+     	<span wicket:id="feedback"></span>
+		
+		<form wicket:id="editQuestionForm" >
+			<h3>Edit question</h3>
+			<table>
+				<tr>
+					<td><label wicket:id="textLabel" class="label"></label></td>
+					<td><input wicket:id="textField" class="input"/></td>
+				</tr>
+							
+			</table>
+			<br>
+			<input wicket:id="submitButton" type="submit" value="Save" class="btn-primary"/>
+			<input wicket:id="cancelButton" type="submit" value="Cancel" class="btn-warning"/>
+		</form>
+	 
+    </wicket:extend>
+</body>
+</html>

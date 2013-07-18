@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1156/trunk/jskills/src/main/resources/liquibase/data/dev
+END
+role_permission.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1055/trunk/jskills/src/main/resources/liquibase/data/dev/role_permission.xml
+END
+roles.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/1055/trunk/jskills/src/main/resources/liquibase/data/dev/roles.xml
+END
+answer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1136/trunk/jskills/src/main/resources/liquibase/data/dev/answer.xml
+END
+competences_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1135/trunk/jskills/src/main/resources/liquibase/data/dev/competences_data.xml
+END
+settings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1121/trunk/jskills/src/main/resources/liquibase/data/dev/settings.xml
+END
+level.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/1135/trunk/jskills/src/main/resources/liquibase/data/dev/level.xml
+END
+permissions.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1055/trunk/jskills/src/main/resources/liquibase/data/dev/permissions.xml
+END
+question.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1136/trunk/jskills/src/main/resources/liquibase/data/dev/question.xml
+END
+users.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/1129/trunk/jskills/src/main/resources/liquibase/data/dev/users.xml
+END
+profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1156/trunk/jskills/src/main/resources/liquibase/data/dev/profile.xml
+END
+user_role.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1060/trunk/jskills/src/main/resources/liquibase/data/dev/user_role.xml
+END
+user_group.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1055/trunk/jskills/src/main/resources/liquibase/data/dev/user_group.xml
+END
+test.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/1136/trunk/jskills/src/main/resources/liquibase/data/dev/test.xml
+END
+countries.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1006/trunk/jskills/src/main/resources/liquibase/data/dev/countries.xml
+END
+groups.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1055/trunk/jskills/src/main/resources/liquibase/data/dev/groups.xml
+END
+group_role.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1055/trunk/jskills/src/main/resources/liquibase/data/dev/group_role.xml
+END
