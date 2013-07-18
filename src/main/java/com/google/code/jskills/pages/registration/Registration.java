@@ -230,9 +230,11 @@ public class Registration extends WebPage {
 		 * Age block
 		 */
 		regForm.add(new Label("ageLabel", "Age: "));
-		NumberTextField<Integer> ageField = new NumberTextField<Integer>("age",
-				new PropertyModel<Integer>(this, "age"), Integer.class);
-		ageField.add(RangeValidator.minimum(16));
+//		NumberTextField<Integer> ageField = new NumberTextField<Integer>("age",
+//				new PropertyModel<Integer>(this, "age"), Integer.class);
+//		ageField.add(RangeValidator.minimum(16));
+		MaskedInput<Integer> ageField = new MaskedInput<Integer>("age", new PropertyModel<Integer>(this, "age"), 
+				"99");
 		regForm.add(ageField);
 
 		/*
