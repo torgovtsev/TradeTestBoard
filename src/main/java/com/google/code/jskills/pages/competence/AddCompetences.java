@@ -153,9 +153,13 @@ public class AddCompetences extends WebPage {
 				Set<Level> levels = new HashSet<Level>();
 				Competences competence = new Competences(selectCompetences, competencesDescription);
 				Level level1 = new Level(level1Desc, 1);
+				level1.setCompetences(competence);
 				Level level2 = new Level(level2Desc, 2);
+				level2.setCompetences(competence);
 				Level level3 = new Level(level3Desc, 3);
+				level3.setCompetences(competence);
 				Level level4 = new Level(level4Desc, 4);
+				level4.setCompetences(competence);
 				levels.add(level1);
 				levels.add(level2);
 				levels.add(level3);

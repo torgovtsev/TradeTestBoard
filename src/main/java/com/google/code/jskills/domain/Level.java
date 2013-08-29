@@ -12,7 +12,7 @@ public class Level implements Serializable{
 	private int levelType;
 
 	public Level() {
-		
+		competences = new Competences();
 	}
 	
 	public Level(String description, int levelType) {

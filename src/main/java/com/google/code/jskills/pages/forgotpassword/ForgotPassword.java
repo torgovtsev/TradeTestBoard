@@ -3,6 +3,8 @@ package com.google.code.jskills.pages.forgotpassword;
 import java.util.UUID;
 
 import javax.inject.Inject;
+
+import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxFallbackButton;
@@ -11,6 +13,7 @@ import org.apache.wicket.extensions.markup.html.captcha.CaptchaImageResource;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 
+import org.apache.wicket.markup.html.form.EmailTextField;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 
@@ -18,8 +21,6 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.IResource;
-import org.apache.wicket.validation.validator.EmailAddressValidator;
-
 import com.google.code.jskills.business.services.MailRegistration;
 import com.google.code.jskills.business.services.MailService;
 import com.google.code.jskills.business.services.UserService;
@@ -48,10 +49,8 @@ public class ForgotPassword extends MasterPage {
 	@Inject
 	private UserUuidService userUuidService;
 
-	//private String password = StringUtils.EMPTY;
-
-	private String password = "";
-	private String email = "";
+	private String password = StringUtils.EMPTY;
+	private String email = StringUtils.EMPTY;
 
 	private CaptchaImageResource captchaImageResource;
 
@@ -63,57 +62,21 @@ public class ForgotPassword extends MasterPage {
 		this.captchaImageResource = new CaptchaImageResource(imagePass);
 	}
 
-	private void setCaptchaImageResource() {
-		this.captchaImageResource = new CaptchaImageResource();
-	}
-
 	@Override
 	protected void onInitialize() {
+
 		super.onInitialize();
 
 		final FeedbackPanel feedback = new FeedbackPanel("feedback");
 		feedback.setOutputMarkupId(true);
 		add(feedback);
 
-		Form<?> form = new Form<Void>("form");
+		Form<Void> form = new Form<Void>("form");
 		add(form);
 
-		final RequiredTextField<String> emailField = new RequiredTextField<String>(
-				"email", new PropertyModel<String>(this, "email"));
-		emailField.setOutputMarkupId(true);
-		emailField.add(EmailAddressValidator.getInstance());
-
-		form.add(emailField);
-
-
-		final ImagePanel imagePanel = new ImagePanel("imagePanel") {
-			
-			@Override
-			public IResource getImageResource() {
-				setCaptchaImageResource(randomString(6, 8));
-				return getCaptchaImageResource();
-			}
-		};
-		imagePanel.setOutputMarkupId(true);
+		form.add(addEmailTextField());
 		
-		/*final AjaxLazyLoadPanel lazyLoadPanel = new AjaxLazyLoadPanel("lazyLoadPanel") {
-			
-			private static final long serialVersionUID = -7095862490956491267L;
-
-			@Override
-			public Component getLazyLoadComponent(String arg0) {
-				return new ImagePanel(arg0) {
-					
-					@Override
-					public IResource getImageResource() {
-						setCaptchaImageResource(randomString(6, 8));
-						return getCaptchaImageResource();
-					}
-				};
-			}
-		};
-		lazyLoadPanel.setOutputMarkupId(true);*/
-		
+		final ImagePanel imagePanel = addImagePanel();
 		form.add(imagePanel);
 
 		final RequiredTextField<String> passField = new RequiredTextField<String>(
@@ -126,9 +89,7 @@ public class ForgotPassword extends MasterPage {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				// setCaptchaImageResource(randomString(6, 8));
-				// System.out.println(getCaptchaImageResource().getChallengeIdModel());
-				password = "";
+				password = StringUtils.EMPTY;
 				target.add(imagePanel, passField);
 			}
 
@@ -147,27 +108,25 @@ public class ForgotPassword extends MasterPage {
 			@Override
 			protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
 
+				StringBuilder message = new StringBuilder();
 				if (!getCaptchaImageResource().getChallengeIdModel()
 						.getObject().equals(password)) {
 
-					feedback.error("Captcha password '"
-							+ password
-							+ "' is wrong.\n"
-							+ "Correct password was: "
-							+ getCaptchaImageResource().getChallengeIdModel()
-									.getObject());
-					password = "";
-					
-					
-				} else {
-					//User user = userService.findUserByEmail(email);
+					message.append("Captcha password '");
+					message.append(password);
+					message.append("' is wrong.\n");
+					message.append("Correct password was: ");
+					message.append(getCaptchaImageResource()
+							.getChallengeIdModel().getObject());
+					feedback.error(message.toString());
+					password = StringUtils.EMPTY;
 
+				} else {
 					User user = userUuidService.getUserByEmail(email);
 					if (user != null && !user.getIsBlocked()) {
 						String uuid = UUID.randomUUID().toString();
-     
-						userUuidService
-								.saveUserUuid(new UserUuid(user, uuid));
+
+						userUuidService.saveUserUuid(new UserUuid(user, uuid));
 
 						String content = String
 								.format("Click on http://localhost:8080/jskills/restorepassword?id=%d&uuid=%s",
@@ -176,16 +135,16 @@ public class ForgotPassword extends MasterPage {
 						mailService.sendMessage(new Message(email,
 								"Restore Password", content));
 
-						feedback.info("Check your e-mail. If the e-mail address you entered is associated "
-								+ "with a customer account in our records, you will receive an e-mail from us with instructions "
-								+ "for resetting your password. If you don't receive this e-mail, please check your junk mail folder!");
-						// this.getPage().setResponsePage(RestorePasswordPage.class);
+						message.append("Check your e-mail. If the e-mail address you entered is associated ");
+						message.append("with a customer account in our records, you will receive an e-mail from us with instructions ");
+						message.append("for resetting your password. If you don't receive this e-mail, please check your junk mail folder!");
+						feedback.info(message.toString());
 					} else {
 						if (user == null) {
-							password = "";
+							password = StringUtils.EMPTY;
 							feedback.error("User dose not exit");
 						} else {
-							password = "";
+							password = StringUtils.EMPTY;
 							feedback.info("User blocked");
 						}
 					}
@@ -194,7 +153,7 @@ public class ForgotPassword extends MasterPage {
 				// force redrawing
 				getCaptchaImageResource().invalidate();
 
-				target.add(imagePanel, passField, emailField, feedback);
+				target.add(form);
 			}
 
 		});
@@ -212,6 +171,30 @@ public class ForgotPassword extends MasterPage {
 		return new String(b);
 	}
 
+	private EmailTextField addEmailTextField() {
+		final EmailTextField result = new EmailTextField("email",
+				new PropertyModel<String>(this, "email"));
+		result.setOutputMarkupId(true);
+
+		return result;
+	}
+	
+	private ImagePanel addImagePanel() {
+		final ImagePanel imagePanel = new ImagePanel("imagePanel") {
+
+			private static final long serialVersionUID = -6425636582406386893L;
+
+			@Override
+			public IResource getImageResource() {
+				setCaptchaImageResource(randomString(6, 8));
+				return getCaptchaImageResource();
+			}
+		};
+		imagePanel.setOutputMarkupId(true);
+		
+		return imagePanel;
+	}
+
 	@Override
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
@@ -223,7 +206,7 @@ public class ForgotPassword extends MasterPage {
 				ForgotPassword.class, "../master/bootstrap.css")));
 		response.render(CssHeaderItem.forReference(new CssResourceReference(
 				MasterPage.class, "../master/add.css")));
-		
+
 	}
 
 }
