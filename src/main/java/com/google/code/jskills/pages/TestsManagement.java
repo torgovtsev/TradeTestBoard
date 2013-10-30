@@ -21,8 +21,6 @@ import com.google.code.jskills.pages.testmanagement.TestListPage;
 @ShiroSecurityConstraint(constraint = ShiroConstraint.IsAuthenticated)
 public class TestsManagement extends MasterPage{
 
-	private static final long serialVersionUID = 8348514767830526264L;
-
 	public TestsManagement(){
 		
 		add(new AjaxLink<String>("testListPage") {

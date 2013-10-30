@@ -11,8 +11,6 @@ import javax.swing.tree.TreeModel;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.extensions.markup.html.tree.AbstractTree;
-import org.wicketstuff.shiro.ShiroConstraint;
-import org.wicketstuff.shiro.annotation.ShiroSecurityConstraint;
 
 import com.google.code.jskills.business.services.CompetencesService;
 import com.google.code.jskills.domain.Competences;
@@ -20,7 +18,6 @@ import com.google.code.jskills.domain.Level;
 import com.google.code.jskills.pages.master.MasterPage;
 
 @SuppressWarnings("deprecation")
-@ShiroSecurityConstraint(constraint = ShiroConstraint.IsAuthenticated)
 public abstract class BaseTree extends MasterPage{
 
 	private static final long serialVersionUID = -2298039056490908760L;

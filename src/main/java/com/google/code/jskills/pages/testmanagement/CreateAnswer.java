@@ -26,9 +26,7 @@ import com.google.code.jskills.pages.TestsManagement;
 import com.google.code.jskills.pages.master.MasterPage;
 
 public class CreateAnswer extends TestsManagement{
-
-	private static final long serialVersionUID = 3729694863882682955L;
-
+	
 	private static final Logger LOG = LoggerFactory
 			.getLogger(CreateAnswer.class);
 
@@ -131,9 +129,7 @@ public class CreateAnswer extends TestsManagement{
 		 * Cancel button
 		 */
 		AjaxButton cancelButton = new AjaxButton("cancelButton") {
-			
-			private static final long serialVersionUID = -2203329028733835935L;
-			
+		
 			protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
 			
 				target.add(feedbackPanel);

@@ -5,11 +5,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.wicket.PageReference;
+import org.apache.wicket.ajax.AjaxEventBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
+import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.extensions.markup.html.captcha.CaptchaImageResource;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -19,6 +21,7 @@ import org.apache.wicket.markup.html.form.ChoiceRenderer;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.EmailTextField;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.NumberTextField;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.RadioChoice;
 import org.apache.wicket.markup.html.form.RequiredTextField;
@@ -32,6 +35,8 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.IResource;
 import org.apache.wicket.validation.validator.EmailAddressValidator;
 import org.apache.wicket.validation.validator.PatternValidator;
+import org.apache.wicket.validation.validator.RangeValidator;
+import org.apache.wicket.validation.validator.StringValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,10 +62,10 @@ public class Registration extends WebPage {
 
 	@Inject
 	private transient UserService userService;
-
+	
 	private static final Logger LOG = LoggerFactory
 			.getLogger(MainApplication.class);
-
+	
 	private static final List<String> SEXTYPES = Arrays.asList(new String[] {
 			"Male", "Female" });
 
@@ -68,28 +73,47 @@ public class Registration extends WebPage {
 	 * 1 digit, 1 lower, 1 upper, from 6 to 20
 	 */
 	private static final String PASS_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
+	/*
+	 * 1 sign '+', from 10 to 12
+	 */
+	private static final String PHONE_PATTERN = "(?=.*[0-9])(?=.+).{10,12}";
 
 	private CaptchaImageResource captchaImageResource;
 
-	private String Password = StringUtils.EMPTY;
-	private String hashPassword = StringUtils.EMPTY;
-	private String hashSecretAnswer = StringUtils.EMPTY;
-	private String confPassword = StringUtils.EMPTY;
-	private String firstName = StringUtils.EMPTY;
-	private String secondName = StringUtils.EMPTY;
-	private String secretQuestion = StringUtils.EMPTY;
-	private String secretAnswer = StringUtils.EMPTY;
-	private String telephone = StringUtils.EMPTY;
+	private String Password;
+	private String hashPassword;
+	private String hashSecretAnswer;
+	private String confPassword;
+	private String firstName;
+	private String secondName;
+	private String secretQuestion;
+	private String secretAnswer;
+	private String telephone;
 	private Integer age;
-	private String email = StringUtils.EMPTY;
+	private String email;
 	private String selectedSex = "Male";
-	private String uuid = StringUtils.EMPTY;
-	private String captcha = StringUtils.EMPTY;
-	private String captchaOnImage = StringUtils.EMPTY;
+	private String uuid;
+	private String captcha;
+	private String captchaOnImage;
 
 	private Country selectedCountry;
 
 	private FeedbackPanel feedbackPanel;
+	
+	/*
+	 * stuff methods for captchaImageResource
+	 */
+	private static int randomInt(int min, int max) {
+		return (int) (Math.random() * (max - min) + min);
+	}
+
+	private static String randomString(int min, int max) {
+		int num = randomInt(min, max);
+		byte b[] = new byte[num];
+		for (int i = 0; i < num; i++)
+			b[i] = (byte) randomInt('a', 'z');
+		return new String(b);
+	}
 
 	@Override
 	protected void onInitialize() {
@@ -107,13 +131,37 @@ public class Registration extends WebPage {
 		 * Country block
 		 */
 		regForm.add(new Label("countryLabel", "Select country: "));
-		regForm.add(addCountryList());
+		final List<Country> countriesList = registrationService
+				.getAllCountries();
+		DropDownChoice<Country> countries = new DropDownChoice<Country>(
+				"country", new PropertyModel<Country>(this, "selectedCountry"),
+				new ListModel<Country>(countriesList),
+				new ChoiceRenderer<Country>("name"));
+		regForm.add(countries);
 
 		/*
 		 * Email block
 		 */
 		regForm.add(new Label("emailLabel", "E-mail: "));
-		regForm.add(addEmailField());
+		EmailTextField mailField = new EmailTextField("email",
+				new PropertyModel<String>(this, "email"));
+		mailField.setRequired(true);
+		mailField.add(EmailAddressValidator.getInstance());
+		mailField.add(new AjaxFormComponentUpdatingBehavior("onchange") {
+			private static final long serialVersionUID = 1L;
+
+			protected void onUpdate(AjaxRequestTarget target) {
+				if (registrationService.findUserByEmail(email)) {
+					feedbackPanel.error("This e-mail is busy!");
+					LOG.error("Enter busy e-mail");
+				} else {
+					feedbackPanel.info("This e-mail is free!");
+					LOG.info("All clear!");
+				}
+				target.add(feedbackPanel);
+			}
+		});
+		regForm.add(mailField);
 
 		/*
 		 * Password block
@@ -137,33 +185,46 @@ public class Registration extends WebPage {
 		 * First name block
 		 */
 		regForm.add(new Label("firstnameLabel", "First name: "));
-		regForm.add(addStringField("firstname", "firstName"));
+		final TextField<String> firstnameField = new TextField<String>(
+				"firstname", new PropertyModel<String>(this, "firstName"));
+		firstnameField.setRequired(true);
+		firstnameField.setOutputMarkupId(true);
+		regForm.add(firstnameField);
 
 		/*
 		 * Second name block
 		 */
 		regForm.add(new Label("secondnameLabel", "Second name: "));
-		regForm.add(addStringField("secondname", "secondName"));
+		TextField<String> secondnameField = new TextField<String>("secondname",
+				new PropertyModel<String>(this, "secondName"));
+		secondnameField.setRequired(true);
+		regForm.add(secondnameField);
 
 		/*
 		 * Secret question block
 		 */
 		regForm.add(new Label("secretQstLabel", "Secret question: "));
-		regForm.add(addStringField("secretquestion", "secretQuestion"));
+		TextField<String> secretQstField = new TextField<String>(
+				"secretquestion", new PropertyModel<String>(this,
+						"secretQuestion"));
+		secretQstField.setRequired(true);
+		regForm.add(secretQstField);
 
 		/*
 		 * Secret answer block
 		 */
 		regForm.add(new Label("secretAsrLabel", "Secret answer: "));
-		regForm.add(addStringField("secretanswer", "secretAnswer"));
-
+		TextField<String> secretAsrField = new TextField<String>(
+				"secretanswer", new PropertyModel<String>(this, "secretAnswer"));
+		secretAsrField.setRequired(true);
+		regForm.add(secretAsrField);
+		
 		/*
 		 * Telephone block
 		 */
-		regForm.add(new Label("telephoneLabel",
-				"Telephone (example: +7 (900) 000-0000): "));
-		regForm.add(addMaskedInputField("telephone", "telephone",
-				"~9 (999) 999-9999"));
+		regForm.add(new Label("telephoneLabel", "Telephone (example: +7 (900) 000-0000): "));
+		final MaskedInput<String> telephoneField = new MaskedInput<String>("telephone", new PropertyModel<String>(this, "telephone"), "~9 (999) 999-9999");
+		regForm.add(telephoneField);
 
 		/*
 		 * Sex o,o block
@@ -177,7 +238,10 @@ public class Registration extends WebPage {
 		 * Age block
 		 */
 		regForm.add(new Label("ageLabel", "Age: "));
-		regForm.add(addMaskedInputField("age", "age", "99"));
+		NumberTextField<Integer> ageField = new NumberTextField<Integer>("age",
+				new PropertyModel<Integer>(this, "age"), Integer.class);
+		ageField.add(RangeValidator.minimum(16));
+		regForm.add(ageField);
 
 		/*
 		 * Captcha block
@@ -201,6 +265,7 @@ public class Registration extends WebPage {
 				"captcha", new PropertyModel<String>(this, "captcha"));
 		captchaField.setOutputMarkupId(true);
 		regForm.add(captchaField);
+		
 
 		/*
 		 * Link for update captcha
@@ -215,7 +280,7 @@ public class Registration extends WebPage {
 			}
 
 		});
-
+		
 		/*
 		 * submit button
 		 */
@@ -224,8 +289,7 @@ public class Registration extends WebPage {
 			private static final long serialVersionUID = 1L;
 
 			protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
-				captchaOnImage = getCaptchaImageResource()
-						.getChallengeIdModel().getObject();
+				captchaOnImage = getCaptchaImageResource().getChallengeIdModel().getObject();
 				if (!captchaOnImage.equals(captcha)) {
 					feedbackPanel.error("Captcha password is wrong.\n");
 					captcha = "";
@@ -243,8 +307,7 @@ public class Registration extends WebPage {
 					verification.setUserEntity(user);
 					registrationService.saveUser(user);
 					LOG.info("User has been saved successfully");
-					registrationService.sendMail(user, uuid, Password,
-							secretAnswer);
+					registrationService.sendMail(user, uuid, Password, secretAnswer);
 					LOG.info("E-mail has been sent successfully");
 					setResponsePage(DoneRegistration.class);
 				}
@@ -271,74 +334,11 @@ public class Registration extends WebPage {
 	public void setCaptchaImageResource(String imagePass) {
 		this.captchaImageResource = new CaptchaImageResource(imagePass);
 	}
-
+	
 	@Override
 	public void renderHead(IHeaderResponse response) {
 		response.render(CssHeaderItem.forReference(new CssResourceReference(
 				ProfilesList.class, "../master/bootstrap.css")));
-	}
 
-	/*
-	 * stuff methods for captchaImageResource
-	 */
-	private static int randomInt(int min, int max) {
-		return (int) (Math.random() * (max - min) + min);
-	}
-
-	private static String randomString(int min, int max) {
-		int num = randomInt(min, max);
-		byte b[] = new byte[num];
-		for (int i = 0; i < num; i++)
-			b[i] = (byte) randomInt('a', 'z');
-		return new String(b);
-	}
-
-	private DropDownChoice<Country> addCountryList() {
-		final List<Country> countriesList = registrationService
-				.getAllCountries();
-		DropDownChoice<Country> countries = new DropDownChoice<Country>(
-				"country", new PropertyModel<Country>(this, "selectedCountry"),
-				new ListModel<Country>(countriesList),
-				new ChoiceRenderer<Country>("name"));
-		return countries;
-	}
-
-	private EmailTextField addEmailField() {
-		EmailTextField mailField = new EmailTextField("email",
-				new PropertyModel<String>(this, "email"));
-		mailField.setRequired(true);
-		mailField.add(EmailAddressValidator.getInstance());
-		mailField.add(new AjaxFormComponentUpdatingBehavior("onchange") {
-			private static final long serialVersionUID = 1L;
-
-			protected void onUpdate(AjaxRequestTarget target) {
-				if (registrationService.findUserByEmail(email)) {
-					feedbackPanel.error("This e-mail is busy!");
-					LOG.error("Enter busy e-mail");
-				} else {
-					feedbackPanel.info("This e-mail is free!");
-					LOG.info("All clear!");
-				}
-				target.add(feedbackPanel);
-			}
-		});
-
-		return mailField;
-	}
-
-	private TextField<String> addStringField(String id, String expression) {
-		final TextField<String> result = new TextField<String>(id,
-				new PropertyModel<String>(this, expression));
-		result.setRequired(true);
-		result.setOutputMarkupId(true);
-
-		return result;
-	}
-
-	private MaskedInput<String> addMaskedInputField(String id,
-			String expression, String mask) {
-		final MaskedInput<String> result = new MaskedInput<String>(id,
-				new PropertyModel<String>(this, expression), mask);
-		return result;
 	}
 }

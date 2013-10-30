@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import com.google.code.jskills.business.services.QuestionService;
 import com.google.code.jskills.domain.Question;
 import com.google.code.jskills.pages.TestsManagement;
+import com.google.code.jskills.pages.master.MasterPage;
 
 public class CreateQuestion extends TestsManagement{
 	
@@ -94,9 +95,7 @@ public class CreateQuestion extends TestsManagement{
 		 * Cancel button
 		 */
 		AjaxButton cancelButton = new AjaxButton("cancelButton") {
-
-			private static final long serialVersionUID = -7102206967781963706L;
-			
+		
 			protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
 			
 				target.add(feedbackPanel);

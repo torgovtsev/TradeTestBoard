@@ -15,6 +15,7 @@ import org.apache.wicket.extensions.markup.html.tree.table.TreeTable;
 import org.apache.wicket.extensions.markup.html.tree.table.ColumnLocation.Alignment;
 import org.apache.wicket.extensions.markup.html.tree.table.ColumnLocation.Unit;
 import com.google.code.jskills.business.services.CompetencesService;
+import com.google.code.jskills.pages.registration.Registration;
 
 @SuppressWarnings("deprecation")
 public class CompetencesPage extends BaseTree {

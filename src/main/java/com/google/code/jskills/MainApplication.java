@@ -17,6 +17,7 @@ import org.apache.wicket.cdi.ConversationPropagation;
 import org.apache.wicket.protocol.http.WebApplication;
 
 import com.google.code.jskills.pages.AdministrativeTools;
+import com.google.code.jskills.pages.CompetencesTree;
 import com.google.code.jskills.pages.Dashboard;
 import com.google.code.jskills.pages.Index;
 import com.google.code.jskills.pages.Profiles;
@@ -88,6 +89,7 @@ public class MainApplication extends WebApplication {
 		mountPage("/admin", AdminHome.class);
 		mountPage("/adminTools", AdministrativeTools.class);
 		mountPage("/dashboard", Dashboard.class);
+		mountPage("/competencesTree", CompetencesTree.class);
 		mountPage("/profiles", Profiles.class);
 		mountPage("/testManagement", TestsManagement.class);
 		mountPage("/testManagement/testList", TestListPage.class);

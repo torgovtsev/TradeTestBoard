@@ -17,9 +17,10 @@ public class Competences implements Serializable{
 		
 	}
 	
-	public Competences(Competences competences, String description) {
+	public Competences(Competences competences, String description, Set<Level> levels) {
 		this.competences = competences;
 		this.description = description;
+		this.levels = levels;
 	}
 	
 	public Set<Level> getLevels() {

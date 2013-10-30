@@ -19,8 +19,8 @@ public class ModelBean implements Serializable{
 	}
 	
 	public ModelBean(String description, String level1, String level2, String level3, String level4) {
-		this.property2 = description;
-		this.property3 = level1;
+		this.property2 = description + "\n";
+		this.property3 = level1 + "\n";
 		this.property4 = level2;
 		this.property5 = level3;
 		this.property6 = level4;

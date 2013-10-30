@@ -2,7 +2,6 @@ package com.google.code.jskills.dal.entities;
 
 // Generated 25.06.2013 17:52:09 by Hibernate Tools 3.6.0
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

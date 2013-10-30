@@ -23,8 +23,6 @@
     <class>com.google.code.jskills.dal.entities.AnswerEntity</class>
     <class>com.google.code.jskills.dal.entities.Test2questionEntity</class>
     <class>com.google.code.jskills.dal.entities.Test2questionEntityId</class>
-    <class>com.google.code.jskills.dal.entities.CompetencesEntity</class>
-    <class>com.google.code.jskills.dal.entities.LevelEntity</class>
     <properties>
         <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
         <property name="hibernate.show_sql" value="true" />

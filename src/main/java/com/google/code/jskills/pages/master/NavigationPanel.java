@@ -13,6 +13,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.resource.JQueryPluginResourceReference;
+import com.google.code.jskills.pages.CompetencesTree;
 import com.google.code.jskills.pages.Dashboard;
 import com.google.code.jskills.pages.Profiles;
 import com.google.code.jskills.pages.Report;
@@ -57,7 +58,7 @@ public class NavigationPanel extends Panel {
 				"dashboard", Dashboard.class);
 		li.add(dashboard);
 		final BookmarkablePageLink<Void> competencesTree = new BookmarkablePageLink<Void>(
-				"competencesTree", CompetencesPage.class);
+				"competencesTree", CompetencesTree.class);
 		li.add(competencesTree);
 		final BookmarkablePageLink<Void> profile = new BookmarkablePageLink<Void>(
 				"profiles", Profiles.class);
@@ -103,7 +104,8 @@ public class NavigationPanel extends Panel {
 			private static final long serialVersionUID = 1L;
 
 			public void onComponentTag(Component component, ComponentTag tag) {
-				if (getPage().getClass() == CompetencesPage.class) {
+				if (getPage().getClass() == CompetencesTree.class
+						|| getPage().getClass() == CompetencesPage.class) {
 					tag.put("style", "background-color:Gainsboro");
 
 				}
