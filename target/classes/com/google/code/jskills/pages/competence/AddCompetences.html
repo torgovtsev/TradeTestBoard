@@ -1,6 +1,8 @@
 <html xmlns:wicket="http://wicket.apache.org">
+<head>
+<title>Add competence</title>
+</head>
 <body>
-	<div wicket:id="news"></div>
 	<form wicket:id="addForm">
 		<table class="table table-striped" border="1">
 			<tr>
@@ -32,10 +34,9 @@
 				<td><input type="text" wicket:id="level4" /></td>
 			</tr>
 		</table>
-		<input wicket:id="save" type="submit" value="Save" />
 	</form>
 	<br>
-	
+	<a href="#" wicket:id="save" class="button-link">Save</a>
 	<a href="#" wicket:id="cancel" class="button-link">Cancel</a>
 </body>
 </html>
