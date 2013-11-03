@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.google.code.jskills.business.services.CountryService;
 import com.google.code.jskills.dal.providers.CountryDataProvider;
 import com.google.code.jskills.domain.Country;
@@ -27,6 +29,11 @@ public class CountryServiceImpl implements CountryService {
 
 	@Override
 	public Country findCountryByName(String countryName) {
+
+		if (StringUtils.isBlank(countryName)) {
+			return new Country();
+		}
+
 		return dataProvider.findCountryByName(countryName);
 	}
 

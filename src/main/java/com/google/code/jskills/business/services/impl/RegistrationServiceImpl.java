@@ -6,6 +6,8 @@ import java.util.UUID;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.google.code.jskills.business.services.ApplicationSettingsService;
 import com.google.code.jskills.business.services.CountryService;
 import com.google.code.jskills.business.services.MailRegistration;
@@ -33,7 +35,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	@Inject
 	private transient SecurityService securityService;
-	
+
 	@Inject
 	private transient ApplicationSettingsService settingsService;
 
@@ -101,12 +103,14 @@ public class RegistrationServiceImpl implements RegistrationService {
 			String secretAnswer) {
 		Settings site_url = settingsService.getSettingsById(1);
 		StringBuilder content = new StringBuilder();
-		content.append("Dear " + user.getFirstName() + " " + user.getLastName() + "\n");
+		content.append("Dear " + user.getFirstName() + " " + user.getLastName()
+				+ "\n");
 		content.append("To activate your account, visit the following link within 4 hours and log in with your UUID:\n");
 		content.append(site_url.getValue() + "\n\n");
 		content.append("Your UUID: " + uuid + "\n\n");
 		content.append("If you don't activate your account within 4 hours, you must re-register.\n\n");
-		content.append("Your registration info:\n" + "E-mail: " + user.getEmail() + "\n");
+		content.append("Your registration info:\n" + "E-mail: "
+				+ user.getEmail() + "\n");
 		content.append("Password: " + password + "\n");
 		content.append("Secret question: " + user.getSecretQuestion() + "\n");
 		content.append("Secret answer: " + secretAnswer + "\n\n");
@@ -127,6 +131,11 @@ public class RegistrationServiceImpl implements RegistrationService {
 	 * @return boolean
 	 */
 	public boolean findUserByEmail(String email) {
+
+		if (StringUtils.isBlank(email)) {
+			return Boolean.FALSE;
+		}
+
 		User user = userService.findUserByEmail(email);
 		if (user == null) {
 			return false;
