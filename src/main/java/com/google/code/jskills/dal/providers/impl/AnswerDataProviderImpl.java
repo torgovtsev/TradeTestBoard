@@ -1,7 +1,6 @@
 package com.google.code.jskills.dal.providers.impl;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -9,6 +8,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.code.jskills.business.services.MapperService;
 import com.google.code.jskills.dal.entities.AnswerEntity;
@@ -19,6 +21,9 @@ import com.google.code.jskills.utils.CollectionsUtils;
 @Stateless
 public class AnswerDataProviderImpl implements AnswerDataProvider {
 
+	private static final Logger LOG = LoggerFactory
+			.getLogger(AnswerDataProviderImpl.class);
+
 	@PersistenceContext(unitName = "jskillsDB")
 	private EntityManager entityManager;
 
@@ -27,6 +32,12 @@ public class AnswerDataProviderImpl implements AnswerDataProvider {
 
 	@Override
 	public void create(Answer answer) {
+
+		if (answer == null) {
+			LOG.error("ANswer can't be null");
+			return;
+		}
+
 		final AnswerEntity dataEntity = mapperService.mapTo(answer,
 				AnswerEntity.class);
 		entityManager.persist(dataEntity);
@@ -34,6 +45,12 @@ public class AnswerDataProviderImpl implements AnswerDataProvider {
 
 	@Override
 	public void update(Answer answer) {
+
+		if (answer == null) {
+			LOG.error("ANswer can't be null");
+			return;
+		}
+
 		final AnswerEntity dataEntity = mapperService.mapTo(answer,
 				AnswerEntity.class);
 		entityManager.merge(dataEntity);
@@ -42,6 +59,12 @@ public class AnswerDataProviderImpl implements AnswerDataProvider {
 
 	@Override
 	public void delete(Answer answer) {
+
+		if (answer == null) {
+			LOG.error("ANswer can't be null");
+			return;
+		}
+
 		final AnswerEntity dataEntity = mapperService.mapTo(answer,
 				AnswerEntity.class);
 		entityManager.remove(dataEntity);
