@@ -11,7 +11,7 @@ public class TypedPanel<T> extends Panel {
 		super(id);
 	}
 
-	public TypedPanel(String id, IModel<?> model) {
+	public TypedPanel(String id, IModel<T> model) {
 		super(id, model);
 	}
 
